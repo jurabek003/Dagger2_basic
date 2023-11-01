@@ -3,6 +3,7 @@ package uz.turgunboyevjurabek.dagger2basic
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import uz.turgunboyevjurabek.dagger2basic.adapters.RvAdapter
 import uz.turgunboyevjurabek.dagger2basic.databinding.ActivityMainBinding
 import uz.turgunboyevjurabek.dagger2basic.madels.ClientGet
@@ -18,14 +19,17 @@ class MainActivity : AppCompatActivity() {
         App.applicationComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        Toast.makeText(this, "${viewModelClients.getALlClients()}", Toast.LENGTH_SHORT).show()
+
+
         adapterCreate()
 
     }
 
     private fun adapterCreate() {
-        rvAdapter=RvAdapter( viewModelClients.getALlClients())
-        Toast.makeText(this, "${viewModelClients.getALlClients()}  funksiyani ichida", Toast.LENGTH_SHORT).show()
-        binding.rvAdapter.adapter=rvAdapter
+        viewModelClients.getALlClients().observe(this,Observer{
+            rvAdapter=RvAdapter(it)
+            binding.rvAdapter.adapter=rvAdapter
+        })
+
     }
 }

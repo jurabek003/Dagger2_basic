@@ -16,7 +16,8 @@ class RvAdapter(val list:ArrayList<ClientGet>):RecyclerView.Adapter<RvAdapter.Vh
     inner class Vh(val itemRvBinding: ItemRvBinding):ViewHolder(itemRvBinding.root){
         fun onBind(clientGet: ClientGet){
             itemRvBinding.thtItem.text=clientGet.ism
-            itemRvBinding.imgItem.setImageURI(Uri.parse(clientGet.clientRasm as String?))
+
+//            itemRvBinding.imgItem.setImageURI(Uri.parse(clientGet.clientRasm as String?))
         }
     }
 
@@ -29,6 +30,6 @@ class RvAdapter(val list:ArrayList<ClientGet>):RecyclerView.Adapter<RvAdapter.Vh
     }
 
     override fun onBindViewHolder(holder: Vh, position: Int) {
-        holder.onBind(list[position])
+        holder.onBind(list!![position])
     }
 }
