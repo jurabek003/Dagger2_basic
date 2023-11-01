@@ -26,7 +26,7 @@ class NetworkModule {
             .addConverterFactory(gsonConvertor)
             .build()
     }
-    
+
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit):ApiService{
