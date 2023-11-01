@@ -1,5 +1,6 @@
 package uz.turgunboyevjurabek.dagger2basic.repozitory
 
+import uz.turgunboyevjurabek.dagger2basic.adapters.RvAdapter
 import uz.turgunboyevjurabek.dagger2basic.networking.ApiService
 import javax.inject.Inject
 
